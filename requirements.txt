@@ -1,9 +1,3 @@
-google-generativeai
-google-cloud-bigquery
-google-cloud-speech
-google-auth
-python-telegram-bot
-requests
-pandas
+Copypython-telegram-bot
+nest-asyncio
 streamlit
-nest_asyncio
