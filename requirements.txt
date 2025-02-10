@@ -5,3 +5,4 @@ google-auth
 python-telegram-bot
 requests
 pandas
+streamlit
