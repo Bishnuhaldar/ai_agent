@@ -1,0 +1,7 @@
+google-generativeai
+google-cloud-bigquery
+google-cloud-speech
+google-auth
+python-telegram-bot
+requests
+pandas
