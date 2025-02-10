@@ -1,6 +1,7 @@
 from telegram import Update
 from telegram.ext import Application, CommandHandler, MessageHandler, filters, CallbackContext
 from telegram import ReplyKeyboardMarkup
+import streamlit as st
 
 
 # Replace with your actual bot token
@@ -49,7 +50,7 @@ def main():
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, echo))
     app.add_handler(CommandHandler("info",user_info))
 
-    print("Bot is running...")
+    st.write('bot is running....')
     app.run_polling()
 
 if __name__ == "__main__":
