@@ -40,26 +40,26 @@ project_id = "data-driven-cx"
 dataset_id = "agentic_ai"
 
 # Function to fetch table schemas
-def fetch_table_schemas(project_id, dataset_id):
-    dataset_ref = client.dataset(dataset_id)
-    tables = client.list_tables(dataset_ref)
+# def fetch_table_schemas(project_id, dataset_id):
+#     # dataset_ref = client.dataset(dataset_id)
+#     # tables = client.list_tables(dataset_ref)
 
-    all_schemas_info = ""
-    for table in tables:
-        table_ref = dataset_ref.table(table.table_id)
-        try:
-            table = client.get_table(table_ref)
-            schema_str = f"Schema for table {table.table_id}:\n"
-            for field in table.schema:
-                schema_str += f"  {field.name} ({field.field_type})\n"
-            all_schemas_info += schema_str + "\n"
-        except Exception as e:
-            print(f"Table {table.table_id} not found.")
+#     # all_schemas_info = ""
+#     # for table in tables:
+#     #     table_ref = dataset_ref.table(table.table_id)
+#     #     try:
+#     #         table = client.get_table(table_ref)
+#     #         schema_str = f"Schema for table {table.table_id}:\n"
+#     #         for field in table.schema:
+#     #             schema_str += f"  {field.name} ({field.field_type})\n"
+#     #         all_schemas_info += schema_str + "\n"
+#     #     except Exception as e:
+#     #         print(f"Table {table.table_id} not found.")
     
-    return all_schemas_info
+#     return all_schemas_info
 
 
-schema_for_tables = fetch_table_schemas(project_id, dataset_id)
+# schema_for_tables = fetch_table_schemas(project_id, dataset_id)
 
 
 # Function to execute SQL queries
@@ -126,7 +126,7 @@ project_id = "data-driven-cx"
 dataset_id = "agentic_ai"
 
 here is the schema:
-{schema_for_tables}
+
 
 here is the is the user input
 {text}
