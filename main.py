@@ -25,15 +25,15 @@ genai.configure(api_key="AIzaSyCw2EGbX55HV5PcqVVjS2LV0nXi8awGEEQ")
 model = genai.GenerativeModel("gemini-1.5-flash")
 
 # Load credentials from a JSON file
-key_path = "data-driven-cx-04da37b60712.json"  # Update this with the correct path
-credentials = service_account.Credentials.from_service_account_file(key_path)
+# key_path = "data-driven-cx-04da37b60712.json"  # Update this with the correct path
+# credentials = service_account.Credentials.from_service_account_file(key_path)
 
 # Set up BigQuery client
 project_id = 'data-driven-cx'
-client = bigquery.Client(credentials=credentials, project=project_id)
+# client = bigquery.Client(credentials=credentials, project=project_id)
 
 # Initialize Speech-to-Text client
-speech_client = speech.SpeechClient(credentials=credentials)
+# speech_client = speech.SpeechClient(credentials=credentials)
 
 # Set your project ID and dataset ID
 project_id = "data-driven-cx"
@@ -64,13 +64,15 @@ schema_for_tables = fetch_table_schemas(project_id, dataset_id)
 
 # Function to execute SQL queries
 def execute_query(query):
-    try:
-        query_job = client.query(query)
-        results = query_job.result().to_dataframe()
-        return results
-    except Exception as e:
-        print(f"Query execution error: {e}")
-        return None
+    # try:
+    #     query_job = client.query(query)
+    #     results = query_job.result().to_dataframe()
+    #     return results
+    # except Exception as e:
+    #     print(f"Query execution error: {e}")
+        # return None
+        return query
+
 
 def mail_sender(receiver_email, subject, body):
     """Send email using Gmail SMTP"""
@@ -231,21 +233,21 @@ async def handle_voice(update: Update, context: CallbackContext):
 
 
 def transcribe_audio(file_path):
-    """Converts speech to text using Google Cloud Speech-to-Text"""
-    with open(file_path, "rb") as audio_file:
-        content = audio_file.read()
+    # """Converts speech to text using Google Cloud Speech-to-Text"""
+    # with open(file_path, "rb") as audio_file:
+    #     content = audio_file.read()
 
-    audio = speech.RecognitionAudio(content=content)
-    config = speech.RecognitionConfig(
-        encoding=speech.RecognitionConfig.AudioEncoding.OGG_OPUS,
-        sample_rate_hertz=48000,
-        language_code="en-US"
-    )
+    # audio = speech.RecognitionAudio(content=content)
+    # config = speech.RecognitionConfig(
+    #     encoding=speech.RecognitionConfig.AudioEncoding.OGG_OPUS,
+    #     sample_rate_hertz=48000,
+    #     language_code="en-US"
+    # )
 
-    response = speech_client.recognize(config=config, audio=audio)
+    # response = speech_client.recognize(config=config, audio=audio)
 
-    if response.results:
-        return response.results[0].alternatives[0].transcript
+    # if response.results:
+    #     return response.results[0].alternatives[0].transcript
     return None
 
 
